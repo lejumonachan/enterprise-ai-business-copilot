@@ -262,7 +262,7 @@ elif page == "Upload & Preview":
         file_type, data = load_file(uploaded_file)
 
         if file_type == "dataframe":
-            st.success("✅ Data file uploaded successfully")
+            st.success(" Data file uploaded successfully")
 
             st.session_state["uploaded_data"] = data
             st.session_state["file_type"] = "dataframe"
@@ -275,7 +275,7 @@ elif page == "Upload & Preview":
             c3.metric("Missing Values", summary["missing_values"])
             c4.metric("Duplicate Rows", summary["duplicate_rows"])
 
-            st.markdown("### 📄 Data Preview")
+            st.markdown("###  Data Preview")
             st.dataframe(data.head(20), use_container_width=True)
 
             st.markdown("###  Statistical Summary")
@@ -296,7 +296,7 @@ elif page == "Upload & Preview":
                     st.session_state["rag_index"] = index
                     st.session_state["rag_chunks"] = stored_chunks
 
-                    st.success("✅ RAG index created successfully")
+                    st.success(" RAG index created successfully")
 
                 except Exception as e:
                     st.error(f"RAG Index Error: {e}")
@@ -309,7 +309,7 @@ elif page == "Upload & Preview":
             st.error("Unsupported file type")
 
 elif page == "AI Chat With Data":
-    st.markdown("## 💬 AI Chat With Data")
+    st.markdown("##  AI Chat With Data")
 
     st.markdown("""
     <div class="glass-card">
@@ -456,7 +456,7 @@ elif page == "AutoML Engine":
                     )
 
                 st.session_state["automl_output"] = output
-                st.success("✅ AutoML completed successfully")
+                st.success(" AutoML completed successfully")
 
             except Exception as e:
                 st.error(f"AutoML Error: {e}")
