@@ -1,0 +1,14 @@
+streamlit
+pandas
+numpy
+plotly
+scikit-learn
+PyPDF2
+openpyxl
+fpdf
+sentence-transformers
+faiss-cpu
+transformers
+torch
+sentencepiece
+
