@@ -22,7 +22,7 @@ ensure_directories()
 
 st.set_page_config(
     page_title="Enterprise AI Business Copilot",
-    page_icon="🤖",
+    page_icon="",
     layout="wide"
 )
 
@@ -175,7 +175,7 @@ footer {
 
 st.sidebar.markdown("""
 <div class="sidebar-brand">
-    <h2>🤖 AI Copilot</h2>
+    <h2> AI Copilot</h2>
     <p>Enterprise AI Analytics Platform</p>
 </div>
 """, unsafe_allow_html=True)
@@ -193,10 +193,10 @@ page = st.sidebar.radio(
 )
 
 st.sidebar.markdown("---")
-st.sidebar.markdown("### 👨‍💻 Developer")
+st.sidebar.markdown("###  Developer")
 st.sidebar.markdown("**Leju Monachan**")
 st.sidebar.markdown("[🔗 LinkedIn](https://www.linkedin.com/in/leju-monachan757/)")
-st.sidebar.markdown("[💻 GitHub](https://github.com/lejumonachan)")
+st.sidebar.markdown("[ GitHub](https://github.com/lejumonachan)")
 
 st.markdown("""
 <div class="hero">
@@ -209,7 +209,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 if page == "Home":
-    st.markdown("## 🚀 Platform Overview")
+    st.markdown("##  Platform Overview")
 
     c1, c2, c3, c4 = st.columns(4)
 
@@ -278,7 +278,7 @@ elif page == "Upload & Preview":
             st.markdown("### 📄 Data Preview")
             st.dataframe(data.head(20), use_container_width=True)
 
-            st.markdown("### 📊 Statistical Summary")
+            st.markdown("###  Statistical Summary")
             st.dataframe(data.describe(include="all"), use_container_width=True)
 
         elif file_type == "pdf":
@@ -352,11 +352,11 @@ elif page == "AI Chat With Data":
                     else:
                         answer = ask_ai_about_data(question, context)
 
-                st.markdown("### 🤖 AI Answer")
+                st.markdown("###  AI Answer")
                 st.markdown(answer)
 
 elif page == "Business Dashboard":
-    st.markdown("## 📊 Business Dashboard")
+    st.markdown("##  Business Dashboard")
 
     if "file_type" not in st.session_state or st.session_state["file_type"] != "dataframe":
         st.warning("Please upload a CSV or Excel file first from Upload & Preview.")
@@ -430,7 +430,7 @@ elif page == "Business Dashboard":
                     st.info("Need at least two numeric columns.")
 
 elif page == "AutoML Engine":
-    st.markdown("## 🤖 AutoML Engine")
+    st.markdown("##  AutoML Engine")
 
     if "file_type" not in st.session_state or st.session_state["file_type"] != "dataframe":
         st.warning("Please upload a CSV or Excel file first.")
@@ -445,7 +445,7 @@ elif page == "AutoML Engine":
         if "automl_output" not in st.session_state:
             st.session_state["automl_output"] = None
 
-        if st.button("🚀 Run AutoML Pipeline"):
+        if st.button(" Run AutoML Pipeline"):
             try:
                 with st.spinner("Training and comparing models..."):
                     output = run_automl(
@@ -467,10 +467,10 @@ elif page == "AutoML Engine":
             st.markdown("### Detected Problem Type")
             st.info(output["problem_type"])
 
-            st.markdown("### 📊 Model Comparison")
+            st.markdown("###  Model Comparison")
             st.dataframe(output["results"], use_container_width=True)
 
-            st.markdown("### 🏆 Best Model")
+            st.markdown("###  Best Model")
             st.success(output["best_model_name"])
 
             pred_df = pd.DataFrame({
@@ -478,11 +478,11 @@ elif page == "AutoML Engine":
                 "Predicted": output["predictions"]
             })
 
-            st.markdown("### 🔮 Sample Predictions")
+            st.markdown("###  Sample Predictions")
             st.dataframe(pred_df, use_container_width=True)
 
             st.divider()
-            st.markdown("## 🚀 Live Prediction Console")
+            st.markdown("##  Live Prediction Console")
 
             user_input = {}
             X_sample = output["X_sample"]
@@ -497,7 +497,7 @@ elif page == "AutoML Engine":
                         options = ["Unknown"]
                     user_input[col] = st.selectbox(col, options)
 
-            if st.button("🎯 Predict Target Value"):
+            if st.button(" Predict Target Value"):
                 try:
                     prediction = predict_user_input(
                         model=output["best_model"],
@@ -505,7 +505,7 @@ elif page == "AutoML Engine":
                         feature_columns=feature_columns,
                         target_encoder=output["target_encoder"]
                     )
-                    st.success(f"✅ Predicted {target}: {prediction}")
+                    st.success(f" Predicted {target}: {prediction}")
                 except Exception as e:
                     st.error(f"Prediction Error: {e}")
 
@@ -526,7 +526,7 @@ elif page == "Executive Report":
             with st.spinner("Generating report..."):
                 insights = generate_business_insights(context)
 
-            st.markdown("### 🧠 Executive Insights")
+            st.markdown("###  Executive Insights")
             st.markdown(insights)
 
             report_path = generate_pdf_report(
@@ -536,7 +536,7 @@ elif page == "Executive Report":
 
             with open(report_path, "rb") as file:
                 st.download_button(
-                    label="📥 Download PDF Report",
+                    label=" Download PDF Report",
                     data=file,
                     file_name="executive_report.pdf",
                     mime="application/pdf"
