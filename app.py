@@ -195,7 +195,7 @@ page = st.sidebar.radio(
 st.sidebar.markdown("---")
 st.sidebar.markdown("###  Developer")
 st.sidebar.markdown("**Leju Monachan**")
-st.sidebar.markdown("[🔗 LinkedIn](https://www.linkedin.com/in/leju-monachan757/)")
+st.sidebar.markdown("[ LinkedIn](https://www.linkedin.com/in/leju-monachan757/)")
 st.sidebar.markdown("[ GitHub](https://github.com/lejumonachan)")
 
 st.markdown("""
@@ -231,7 +231,7 @@ if page == "Home":
 
     st.markdown("""
     <div class="glass-card">
-        <h3>✨ Enterprise Capabilities</h3>
+        <h3> Enterprise Capabilities</h3>
         <ul>
             <li>Upload CSV, Excel, and PDF files</li>
             <li>Analyze business datasets with interactive dashboards</li>
@@ -244,7 +244,7 @@ if page == "Home":
     """, unsafe_allow_html=True)
 
 elif page == "Upload & Preview":
-    st.markdown("## 📂 Upload & Preview")
+    st.markdown("##  Upload & Preview")
 
     st.markdown("""
     <div class="glass-card">
@@ -282,7 +282,7 @@ elif page == "Upload & Preview":
             st.dataframe(data.describe(include="all"), use_container_width=True)
 
         elif file_type == "pdf":
-            st.success("✅ PDF uploaded and text extracted successfully")
+            st.success(" PDF uploaded and text extracted successfully")
 
             st.session_state["uploaded_text"] = data
             st.session_state["file_type"] = "pdf"
@@ -301,7 +301,7 @@ elif page == "Upload & Preview":
                 except Exception as e:
                     st.error(f"RAG Index Error: {e}")
 
-            st.markdown("### 📄 Extracted PDF Text Preview")
+            st.markdown("###  Extracted PDF Text Preview")
             st.text_area("PDF Text", data[:5000], height=300)
             st.metric("Extracted Characters", len(data))
 
@@ -371,7 +371,7 @@ elif page == "Business Dashboard":
         c3.metric("Missing", int(df.isnull().sum().sum()))
         c4.metric("Duplicates", int(df.duplicated().sum()))
 
-        st.markdown("### 📄 Dataset Preview")
+        st.markdown("###  Dataset Preview")
         st.dataframe(df.head(20), use_container_width=True)
 
         if len(numeric_cols) == 0:
@@ -510,7 +510,7 @@ elif page == "AutoML Engine":
                     st.error(f"Prediction Error: {e}")
 
 elif page == "Executive Report":
-    st.markdown("## 📄 Executive Report")
+    st.markdown("##  Executive Report")
 
     if "file_type" not in st.session_state:
         st.warning("Please upload a file first.")
